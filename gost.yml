@@ -2,7 +2,10 @@ services:
 - name: service-0
   addr: :80
   handler:
-    type: socks5
+    type: ss
+    auth:
+      username: chacha20-ietf-poly1305
+      password: re8016
     chain: chain-0
   listener:
     type: ws
