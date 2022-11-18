@@ -1,0 +1,38 @@
+services:
+- name: service-0
+  addr: :80
+  handler:
+    type: socks5
+    chain: chain-0
+  listener:
+    type: ws
+chains:
+- name: chain-0
+  hops:
+  - name: hop-0
+    bypasses:
+    - bypass-0
+    - bypass-1
+    nodes:
+    - name: node-0
+      addr: g.cholmes.tk:1080
+      connector:
+        type: socks5
+        auth:
+          username: cholmes
+          password: re8016
+      dialer:
+        type: tcp
+bypasses:
+- name: bypass-0
+  whitelist: true
+  matchers:
+  - dmm.co.jp
+- name: bypass-1
+  matchers:
+  - pics.dmm.co.jp
+  - cdn.dap.dmm.co.jp
+  - doujin-assets.dmm.co.jp
+  - ebook-assets.dmm.co.jp
+  - p.dmm.co.jp
+  - cc3001.dmm.co.jp
