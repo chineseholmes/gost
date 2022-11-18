@@ -2,10 +2,7 @@ services:
 - name: service-0
   addr: :80
   handler:
-    type: ss
-    auth:
-      username: chacha20-ietf-poly1305
-      password: re8016
+    type: socks5
     chain: chain-0
   listener:
     type: ws
@@ -30,7 +27,7 @@ bypasses:
 - name: bypass-0
   whitelist: true
   matchers:
-  - dmm.co.jp
+  - '*.dmm.co.jp'
 - name: bypass-1
   matchers:
   - pics.dmm.co.jp
